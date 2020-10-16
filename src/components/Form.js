@@ -9,7 +9,7 @@ const Form = () => {
                     <div className="col-12 col-md-6">
                                 
                         <div className="nes-field">
-                            <label for="name_field">Buscar por ingredientes</label>
+                            <label htmlFor="name_field">Buscar por ingredientes</label>
                             <input 
                                 type="text" 
                                 id="name_field" 
@@ -20,13 +20,12 @@ const Form = () => {
                         </div>
                     </div>
                     <div className="col-12 col-md-6">
-                        <label for="name_field">Buscar por ingredientes</label>
+                        <label htmlFor="name_field">Buscar por ingredientes</label>
                         <div className="nes-select">
                             <select 
                                 id="default_select"
                                 name="category"    
                             >
-                                <option value="" disabled selected hidden>Selecciona categoria</option>
                             </select>
                         </div>
                     </div>
