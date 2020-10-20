@@ -56,9 +56,10 @@ const Form = () => {
                             <select 
                                 id="default_select"
                                 name="category"    
-                                defaultValue={'nada'}
                                 onChange={saveSearch}
+                                defaultValue={""}
                             >
+                                <option value="" disabled hidden>Selecciona</option>
                                 {categories.map( (element, index) => (
                                     <option key={index} value={element.strCategory}>{element.strCategory}</option>
                                 ))}

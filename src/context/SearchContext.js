@@ -17,6 +17,7 @@ const SearchProvider = (props) => {
     const {name,category} = searchReceta;
     //cuando tengo los datos del formulario puedo hacer la consulta a la api
     useEffect(() => {
+        if(searchReceta.name === '') return;
         
         const callApi = async () => {
             const urlApi = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${name}&c=${category}`;
