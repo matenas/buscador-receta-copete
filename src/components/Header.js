@@ -8,10 +8,10 @@ const Header = () => {
                 <i className="nes-logo"></i>
                 <i className="nes-bulbasaur"></i>         
                 <i className="nes-squirtle"></i>
-                <i class="nes-mario"></i>
-                <i class="nes-octocat animate"></i>
-                <i class="nes-kirby"></i>
-                <i class="nes-ash"></i>
+                <i className="nes-mario"></i>
+                <i className="nes-octocat animate"></i>
+                <i className="nes-kirby"></i>
+                <i className="nes-ash"></i>
             </section>
   
         </header>

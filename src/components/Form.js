@@ -1,8 +1,38 @@
 import React from 'react';
+import { CategoryContext } from '../context/CategoryContext';
+import { SearchContext } from '../context/SearchContext';
 
 const Form = () => {
+
+    const { categories } = React.useContext(CategoryContext)
+    const { setSearchReceta } = React.useContext(SearchContext)
+
+    //creo el state local para guardar la busqueda
+    const [search, setSearch] = React.useState({
+        name: '',
+        category: ''
+    })
+
+    //funcion para guardar la busqueda en el state
+    const saveSearch = (e) => {
+        setSearch({
+            //guardo una copia del state para no sobreescribirlo cuando me pase al otro input
+            ...search,
+            [e.target.name]: e.target.value
+        })
+    }
+    //funcion al presionar buscar, guardo datos en state del context
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        setSearchReceta(search);
+    }
+
     return (    
-        <form className="col-12">
+        <form 
+            className="col-12"
+            onSubmit={handleSubmit}
+        >
             <div className="nes-container with-title">
                 <h2 className="title">Busca copete por categoria o ingredientes</h2>
                 <div className="row align-items-end">
@@ -16,6 +46,7 @@ const Form = () => {
                                 className="nes-input" 
                                 placeholder="buscar por ingredientes"
                                 name="name"
+                                onChange={saveSearch}
                             />
                         </div>
                     </div>
@@ -25,7 +56,12 @@ const Form = () => {
                             <select 
                                 id="default_select"
                                 name="category"    
+                                defaultValue={'nada'}
+                                onChange={saveSearch}
                             >
+                                {categories.map( (element, index) => (
+                                    <option key={index} value={element.strCategory}>{element.strCategory}</option>
+                                ))}
                             </select>
                         </div>
                     </div>
