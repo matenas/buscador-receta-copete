@@ -49,11 +49,10 @@ const Cocktail = ({name,image,id}) => {
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
     
-    const { setIdReceta,receta } = React.useContext(ModalContext)
+    const { setIdReceta,copete, setReceta } = React.useContext(ModalContext)
 
     const handleButton = () => {
-        console.log(id);
-        setIdReceta(id);
+    setIdReceta(id);
     }
 
     //abro cierro modal funcion
@@ -68,7 +67,6 @@ const Cocktail = ({name,image,id}) => {
 
 
     //saco variables del llamado a la api para ponerlos en el modal
-    console.log(receta);
     return (
         <>
         <div className="nes-container is-dark col-12 col-md-3 mb-3 text-center">
@@ -89,15 +87,21 @@ const Cocktail = ({name,image,id}) => {
         </div>   
         <Modal
             open={open}
-            onClose={handleClose}
+            onClose={() => {
+                handleClose();
+                setReceta({});
+
+            }}
             aria-labelledby="simple-modal-title"
             aria-describedby="simple-modal-description"
         >
             
             <div style={modalStyle} className={classes.paper}>
-                <h2 id="simple-modal-title"></h2>
+                <h2 id="simple-modal-title">{copete.strDrink}</h2>
                 <p id="simple-modal-description">
+                    {copete.strInstructions}
                 </p>
+                <img src={copete.strDrinkThumb} alt="" className="img-fluid my-4"/>
             </div>
         </Modal>
         </>

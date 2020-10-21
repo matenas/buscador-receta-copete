@@ -22,7 +22,6 @@ const SearchProvider = (props) => {
         const callApi = async () => {
             const urlApi = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${name}&c=${category}`;
             const res = await Axios.get(urlApi);
-            console.log(res.data.drinks);
             setCocktail(res.data.drinks);
         }
         callApi();

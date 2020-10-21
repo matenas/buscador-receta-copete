@@ -7,7 +7,7 @@ const ModalProvider  = (props) => {
 
 
     const [idReceta, setIdReceta] = React.useState(null);
-    const [receta, setReceta] = React.useState({});
+    const [copete, setReceta] = React.useState({});
 
     React.useEffect(()=> {
 
@@ -26,7 +26,8 @@ const ModalProvider  = (props) => {
         <ModalContext.Provider
             value={{
                 setIdReceta,
-                receta
+                copete,
+                setReceta
             }}
         >
             {props.children}
