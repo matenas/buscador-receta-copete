@@ -7,7 +7,7 @@ export const SearchContext = React.createContext();
 const SearchProvider = (props) => {
 
     //state con la consulta ya realizada 
-    const [cocktail, setCocktail] = React.useState({});
+    const [cocktail, setCocktail] = React.useState([]);
 
     //state para hacer la consulta
     const [searchReceta, setSearchReceta] = React.useState({
@@ -34,7 +34,8 @@ const SearchProvider = (props) => {
     return (
         <SearchContext.Provider
             value={ {
-                setSearchReceta
+                setSearchReceta,
+                cocktail
             }}
         >
             {props.children}
